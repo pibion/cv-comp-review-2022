@@ -1,0 +1,356 @@
+%%---------------------------------------------------------------------------
+%
+% Notes:
+%
+% * To create a new page use
+%   \newpage \opening
+%
+% * res.cls includes an \address{} command which can be used up to twice,
+%   but my address is too long for the format it uses.
+%
+% * Alternate documentclass statement to put headings in margin:
+%   \documentclass[margin,line,11pt,final]{res}
+%
+% * Can divide publication/presentation list into subsections by year:
+%   \section{\bf\small\hspace{8mm}2006}
+%
+%%----------------------------------------------------------------------------
+\documentclass[overlapped,line,letterpaper]{res}
+%\documentstyle[hyperref, margin, line]{res_yy}
+
+%\setkomafont{subsection}{\usefont{T1}{fvm}{m}{n}}
+%\setkomafont{section}{\usefont{T1}{fvs}{b}{n}\Large}
+%\usepackage[T1]{fontenc}
+%\usepackage{fourier}
+%\usepackage[math]{kurier}
+\usepackage[T1]{fontenc}
+\usepackage{cmbright}
+
+%% control vertical spacing between items in list
+\usepackage{enumitem}
+
+%\renewcommand{\labelitemi}{$\cdot$}
+% define two bibliographies: art (for articles) and pro (for proceedings)
+
+%\usepackage[resetlabels]{multibib}
+%\newcites{pub,collab,other}{Publications,Collaborations,Other}
+\usepackage{natbib}
+\usepackage{bibentry}
+\newcommand{\bibverse}[1]{\begin{verse} \bibentry{#1}. \end{verse}}
+
+% prevent multibib from rendering the bibliography titles (second argument to \newcites)
+%\makeatletter
+%\def\thebibliographypub#1{% uncomment to get numbering of entries as usual
+%	\list{[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth\advance\leftmargin\labelsep\usecounter{enumi}}
+%  \def\newblock{\hskip .11em plus .33em minus .07em}
+%  \sloppy\clubpenalty4000\widowpenalty4000
+%  \sfcode`\.=1000\relax
+%}
+%\makeatother
+%\makeatletter
+%\def\thebibliographycollab#1{}
+%\makeatother
+%\makeatletter
+%\def\thebibliographyother#1{}
+%\makeatother
+
+\usepackage{ifpdf}
+\ifpdf
+  \usepackage[pdftex]{hyperref}
+\else
+  \usepackage[hypertex]{hyperref}
+\fi
+
+\hypersetup{
+  letterpaper,
+  colorlinks,
+  urlcolor=black,
+  pdfpagemode=none,
+  pdftitle={Curriculum Vitae},
+  pdfauthor={Amy Roberts},
+  pdfcreator={$ $Id: amy_CVandPUB.tex,v 1.0 2010/04/13 14:08:00 arobert4 Exp $ $},
+  pdfsubject={Curriculum Vitae},
+  pdfkeywords={nuclear physics 76Ge neutrinoless double beta decay c++ neutron}
+}
+
+\def\Cplusplus{{\rm C\raise.5ex\hbox{\small ++}}}
+\def\C{{\rm C}}
+
+
+\begin{document}
+%---------------------------------------------------------------------------
+% Document Specific Customizations
+
+% Make lists without bullets and with no indentation
+\setlength{\leftmargini}{0em}
+\renewcommand{\labelitemi}{}
+
+% Use large bold font for printed name at top of pages
+\renewcommand{\namefont}{\large\textbf}
+
+\nobibliography*
+%---------------------------------------------------------------------------
+
+\name{Amy Roberts, Ph.D.}
+
+\begin{resume}
+
+%\begin{center}
+
+\begin{ncolumn}{2}
+University of South Dakota                      & Phone:  574.383.9415 \\
+Deparment of Physics                            & e-mail: {\tt amy.l.roberts@usd.edu}\\
+Akeley-Lawrence Science Center & \\
+414 E. Clark St. & \\
+Vermillion, SD 57069                            & \\
+
+\end{ncolumn}
+
+%---------------------------------------------------------------------------
+
+\section{\bf Summary}
+
+\vspace{0.7mm}
+Scientist experienced in building computing tools for the analysis and acquisition of complex data sets.  I combine software, hardware, and physics knowledge to solve tricky problems.
+
+%---------------------------------------------------------------------------
+
+\section{\bf Key Skills}
+
+\begin{itemize}
+\item {\bf analysis}: multivariate analysis and fitting; significance testing; combining multiple sources of data to understand complex systems
+\item {\bf compiled languages}: development experience in \C, \Cplusplus, FORTRAN
+\item {\bf interpreted langauges}: development experience JavaScript/HTML/CSS; use MATLAB, Python as primary analysis environment
+\item {\bf hobby langauges}: small side projects in Rust, Elixir; experience writing queries for mySQL and couchDB databases
+\end{itemize}
+
+%---------------------------------------------------------------------------
+%---------------------------------------------------------------------------
+\section{\bf Professional Experience}
+
+\begin{format}
+\title{l}\dates{r}\\
+\vspace{0.7mm}
+\body\\
+\end{format}
+
+\title{\mbox{Post-Doctoral Researcher at the University of South Dakota}}
+\dates{2014 - present}
+\begin{position}
+  The CDMS (Cryogenic Dark Matter Search) experiment searches for dark matter with cryogenic germanium detectors installed deep underground.
+\begin{itemize}
+\renewcommand{\labelitemi}{-}
+{\setlength\itemindent{15pt} \item lead developer of web-based data-acquisition tools; worked with remote users to identify critical needs; the tools have allowed the collaboration to gain significant experience with beta instrumentation hardware}
+{\setlength\itemindent{15pt} \item performed novel analysis of correlations in detector rates, placing a limit on our current sensitivity to radon gas contamination}
+{\setlength\itemindent{15pt} \item mentored Master's student, who successfully combined data sets from independent detectors to study high-energy charged particles}
+{\setlength\itemindent{15pt} \item serve within DOE project structure as a level-3 manager for Data Quality system }
+{\setlength\itemindent{15pt} \item working with researcher Chao Zhang to modify detector control software for use on an iPad}
+\end{itemize}
+\end{position}
+
+\title{\mbox{Post-Doctoral Researcher in Subatomic Physics Group at LANL}}
+\dates{2013 - 2014}
+\begin{position}
+  R\&D for the ultra-cold neutron team at Los Alamos National Laboratory.
+\begin{itemize}
+\renewcommand{\labelitemi}{-}
+{\setlength\itemindent{15pt} \item identified and fixed long-standing bugs in FORTRAN-based ultra-cold neutron transport code; repairs allowed successful analysis of several new data sets}
+{\setlength\itemindent{15pt} \item developed verification suite for FORTRAN-based ultra-cold neutron transport code}
+{\setlength\itemindent{15pt} \item tested resistivity of candidate electrode-coating materials at cryogenic temperatures; identified unanticipated issues with manufacturing consistency and thermal-cycling degredation}
+{\setlength\itemindent{15pt} \item mentored LANL undergraduate summer student, who successfully verified the mechanical robustness of a cryogenic design incorporating materials with different thermal expansion rates}
+\end{itemize}
+\end{position}
+
+\title{\mbox{Research Assistant to Dr.\ James Kolata (Thesis adviser)}}
+\dates{2007 - 2013}
+\begin{position}
+   An accelerator-based measurement of $^{74,76}$Ge($^3$He,n).  My experiment provided data necessary to better understand the nuclear structure of $^{76}$Ge, of interest in neutrinoless double beta decay experiments.
+\begin{itemize}
+\renewcommand{\labelitemi}{-}
+{\setlength\itemindent{15pt} \item Designed and constructed a muon veto detector using wave-shifting fiber to instrument damaged plastic scintillator, reducing background by more than 90\%}
+{\setlength\itemindent{15pt} \item Used data from new muon veto detector to develop a new method for event reconstruction, reducing systematic uncertainty by 20\%}
+{\setlength\itemindent{15pt} \item worked with staff machinists to implement
+  effective methods for machining brittle plastic scintillator}
+{\setlength\itemindent{15pt} \item instrumented existing detectors to take a new
+  type of data using standard electronics modules}
+{\setlength\itemindent{15pt} \item oversaw six undergraduates, whose projects ranged from measuring target thicknesses with alpha source to simulating neutron detectors in geant4}
+\end{itemize}
+\end{position}
+
+\title{\mbox{Collaboration with Dr.\ Fred Becchetti (University of Michigan - Ann Arbor)}}
+\dates{2007 - 2013}
+\begin{position}
+  Work with Dr.\ Becchetti has focused on calibration of novel detectors, particularly film detection and deuterated liquid scintillators.  Film detectors allow for quick beam diagnostics.  Deuterated liquid scintillator is of particular interest because its neutron energy spectrum features a pronounced peak.
+\begin{itemize}
+\renewcommand{\labelitemi}{-}
+{\setlength\itemindent{15pt} \item implemented hardware discrimination between neutron, $\gamma$ particles}
+{\setlength\itemindent{15pt} \item extensive experience with vacuum systems; machined custom vacuum fittings and detector mounts}
+\end{itemize}
+\end{position}
+
+\title{\mbox{Teaching Assistant, Introductory Calculus, SUNY - Stony Brook}}
+\dates{2004 - 2005}
+\begin{position}
+\begin{itemize}
+\vspace{-9mm}
+\renewcommand{\labelitemi}{-}
+{\setlength\itemindent{15pt} \item held remedial sessions when it became clear that many students lacked necessary background; the exam averages of my sections were 10\% above the class average}
+\end{itemize}
+\end{position}
+
+\title{\mbox{Student researcher within the Magnet Division at BNL}}
+\dates{2003 - 2004}
+\begin{position}
+My work at Brookhaven National Laboratory focused on exploring possible
+applications for a newly-developed, compact magnet design.
+\begin{itemize}
+\renewcommand{\labelitemi}{-}
+{\setlength\itemindent{15pt} \item used shell scripts and MATLAB to skim and analyze data from multiple magnet-simulation codes}
+\end{itemize}
+\end{position}
+
+%---------------------------------------------------------------------------
+
+\section{\bf Education}
+
+Ph.D. in Physics, University of Notre Dame \hfill {2005 - 2013} \\
+``Investigating Proton Pairing in $^{76}$Se with Two-Proton Transfer onto $^{74}$Ge'' \\
+Advised by Dr. James Kolata
+\vspace{3mm}
+\newline
+Bachelor of Science in Physics and Mathematics, SUNY - Stony Brook \hfill 2000 - 2004 \\
+``Fixed Points of the Riemann Zeta Function'' \\
+Advised by Dr. Araceli Bonifant
+
+%---------------------------------------------------------------------------
+
+\section{\bf Awards and Honors}
+\title{\mbox{Early Career Researcher Travel Award}}
+\dates{2016}
+\begin{position}
+Provides travel funds to attend a Software Carpentry workshop.  Sponsored by the Midwest Big Data Hub and the National Science Foundation.
+\end{position}
+
+\title{\mbox{Larry O. Lamm Memorial Award}}
+\dates{2013}
+\begin{position}
+Recognizes outstanding service and dedication to the Notre Dame Nuclear Structure Laboratory.
+\end{position}
+
+\title{\mbox{Graduate Student Award to attend the Lindau Meeting of Nobel Laureates and Students}}
+\dates{2008}
+\begin{position}
+A conference that aims to connect young scientists with each other and Nobel winners in their field.  Each univsersity can nominate only one candidate.
+\end{position}
+
+\title{\mbox{Lilly Fellowship}}
+\dates{2005 - 2009}
+\begin{position}
+A four-year fellowship intended to keep talented students in Indiana.
+%http://newsinfo.nd.edu/news/7232-lilly-endowment-awards-3-million-grant-to-university/
+\end{position}
+
+\title{\mbox{First Year Mathematics Graduate Student Excellence in Teaching}}
+\dates{2005}
+\begin{position}
+Consideration for this award required a student nomination.
+\end{position}
+
+%---------------------------------------------------------------------------
+
+\section{\bf Selected Talks and Publications}
+
+\bibverse{DM_adventure}%\\
+\vspace{2mm}
+\bibverse{UCNgas}%\\
+\vspace{2mm}
+\bibverse{neutwallAR}%\\
+\vspace{2mm}
+\bibverse{pairing76GeAR}%\\
+\vspace{2mm}
+\bibverse{NIMAdeutScint2011}%\\
+\vspace{2mm}
+%\pagebreak[4]
+\bibverse{LargeChamber}%\\
+\vspace{2mm}
+\bibverse{Film}%\\
+\vspace{2mm}
+\bibverse{Hawaii2009}%\\
+
+%------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------------------------------------
+
+
+%\pagebreak[4]
+%\section{\bf Teaching Experience}
+
+%\title{\mbox{Teaching Assistant, Undergraduate Quantum Mechanics I and II}}
+%\dates{Fall 2008 - Spring 2009}
+%\begin{position}
+%\vspace{-5mm}
+%\begin{itemize}[leftmargin=*,labelindent=15pt,itemsep=0pt,topsep=3pt]
+%\renewcommand{\labelitemi}{-}
+%\item ran a tutorial section each semester and gave one class lecture
+%\end{itemize}
+%\end{position}
+
+%\title{\mbox{Tutor, Disability Services Office}}
+%\dates{Fall 2007 - Fall 2008}
+%\begin{position}
+%\vspace{-5mm}
+%\begin{itemize}[leftmargin=*,labelindent=15pt,itemsep=0pt,topsep=3pt]
+%\renewcommand{\labelitemi}{-}
+%\item worked one-on-one with a blind student to make introductory physics course material accessible
+%\item occasional lecture translator for a blind student in multi-variable calculus course
+%\end{itemize}
+%\end{position}
+
+
+%---------------------------------------------------------------------------
+
+%\section{\bf Participation in Technical Schools}
+%\title{\mbox{Excellence in Detector Instrumentation and Technologies (Fermilab)}}
+%\dates{February, 2012}
+%\begin{position}
+%This is a new school that seeks to promote excellence in detector instrumentation.  Students gained hands-on experience with a broad range of detectors, including silicon photomultipliers and gas time-projection chambers.  Lectures explored detector design and data acquisition.
+%\end{position}
+
+%\title{\mbox{International Neutrino Summer School (Fermilab)}}
+%\dates{July, 2009}
+%\begin{position}
+%The goal of this school was to introduce its students to key aspects of neutrino physics.  There were in-depth lectures on current Standard Model and neutrino theory, neutrino beam production, and neutrino detection.  There were also lectures discussing neutrino experiment design.
+%\end{position}
+%
+%\title{\mbox{Exotic Beam Summer School (Argonne National Lab)}}
+%\dates{August, 2008}
+%\begin{position}
+%This school focused on rare isotopes.  Lectures focused on nuclear theory and rare-istope beam production.  Hands-on detector demonstrations emphasized germanium detectors.
+%\end{position}
+
+%---------------------------------------------------------------------------
+%\section{\bf Publications in Refereed Journals (first author)}
+%  \bibliographystylepub{unsrt}
+%  \nocitepub{*}
+%  \bibliographypub{villanopub}
+%---------------------------------------------------------------------------
+%\section{\bf Publications in Refereed Journals (collaborator)}
+%  \bibliographystylecollab{unsrt}
+%  \nocitecollab{*}
+%  \bibliographycollab{villanocollab}
+%---------------------------------------------------------------------------
+%\section{\bf Other Publications}
+%  \bibliographystyleother{unsrt}
+%  \nociteother{*}
+%  \bibliographyother{villanoother}
+%---------------------------------------------------------------------------
+
+\end{resume}
+\bibliographystyle{unsrt}
+\nobibliography{master}
+
+%\end{center}
+
+\end{document}
